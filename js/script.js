@@ -69,11 +69,10 @@ dwnbtn.addEventListener('click', function(){
     leftItemArray[itemArrayIndex].classList.add('active')
     rightItemArray[itemArrayIndex].classList.add('border-opacity')
     rightImgArray[itemArrayIndex].classList.add('filter')
+    
 })
 
 let interval = setInterval(autoplay, 3000)
-
-
 
 function autoplay(){
         // togliere active da quello corrente
@@ -93,4 +92,15 @@ function autoplay(){
         rightItemArray[itemArrayIndex].classList.add('border-opacity')
         rightImgArray[itemArrayIndex].classList.add('filter')
         
+}
+
+// BONUS 2
+for (let i = 0; i < leftItemArray.length; i++) {
+    const currentItem = leftItemArray[i];
+    currentItem.addEventListener('mouseover', function(){
+        clearInterval(interval)
+    })
+    currentItem.addEventListener('mouseout', function(){
+        interval = setInterval(autoplay, 3000)
+    })
 }
