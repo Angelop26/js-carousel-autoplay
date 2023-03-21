@@ -26,6 +26,7 @@ rightImgArray[itemArrayIndex].classList.add('filter')
 
 const upbtn = document.querySelector('.up-slide')
 upbtn.addEventListener('click', function() {
+    clearInterval(interval)
 
     // togliere active da quello corrente
     leftItemArray[itemArrayIndex].classList.remove('active')
@@ -43,15 +44,13 @@ upbtn.addEventListener('click', function() {
     leftItemArray[itemArrayIndex].classList.add('active')
     rightItemArray[itemArrayIndex].classList.add('border-opacity')
     rightImgArray[itemArrayIndex].classList.add('filter')
-    
-        
-
+    interval = setInterval(autoplay, 3000)
 })
 
 // implementiamo la freccia in basso
 const dwnbtn = document.querySelector('.down-slide');
 dwnbtn.addEventListener('click', function(){
-    
+    clearInterval(interval)
     // togliere active da quello corrente
     leftItemArray[itemArrayIndex].classList.remove('active')
     rightItemArray[itemArrayIndex].classList.remove('border-opacity')
@@ -69,7 +68,7 @@ dwnbtn.addEventListener('click', function(){
     leftItemArray[itemArrayIndex].classList.add('active')
     rightItemArray[itemArrayIndex].classList.add('border-opacity')
     rightImgArray[itemArrayIndex].classList.add('filter')
-    
+    interval = setInterval(autoplay, 3000)
 })
 
 let interval = setInterval(autoplay, 3000)
